@@ -2,6 +2,8 @@ import Header from "@/components/header"
 import Hero from "@/components/hero"
 import WorkEducation from "@/components/work-education"
 import ChatBot from "@/components/chat-bot"
+import Footer from "@/components/footer"
+import FeaturedProjects from "@/components/FeaturedProjects";
 
 export default function Home() {
   return (
@@ -10,8 +12,10 @@ export default function Home() {
       <main>
         <Hero />
         <WorkEducation />
+        <FeaturedProjects />
       </main>
       <ChatBot />
+      <Footer />
     </div>
   )
 }

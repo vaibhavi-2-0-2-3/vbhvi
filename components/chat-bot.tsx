@@ -20,7 +20,7 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Hi! I'm Alex's AI assistant. How can I help you today?",
+      text: "Hi! I'm Vaibhavi's AI assistant. How can I help you today?",
       isBot: true,
       timestamp: new Date(),
     },
@@ -44,7 +44,7 @@ export default function ChatBot() {
     setTimeout(() => {
       const botResponse: Message = {
         id: messages.length + 2,
-        text: "Thanks for your message! This is a demo bot. Alex will get back to you soon via email.",
+        text: "Thanks for your message! This is a demo bot. Vaibhavi will get back to you soon via email.",
         isBot: true,
         timestamp: new Date(),
       }
@@ -88,9 +88,8 @@ export default function ChatBot() {
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.isBot ? "justify-start" : "justify-end"}`}>
               <div
-                className={`max-w-[80%] rounded-lg px-3 py-2 text-sm ${
-                  message.isBot ? "bg-muted text-muted-foreground" : "bg-primary text-primary-foreground"
-                }`}
+                className={`max-w-[80%] rounded-lg px-3 py-2 text-sm ${message.isBot ? "bg-muted text-muted-foreground" : "bg-primary text-primary-foreground"
+                  }`}
               >
                 {message.text}
               </div>

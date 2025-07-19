@@ -3,85 +3,113 @@
 import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 
 export default function WorkEducation() {
-  const [activeTab, setActiveTab] = useState("work")
+  const [activeTab, setActiveTab] = useState("education")
 
   const workExperience = [
     {
-      title: "Senior Full Stack Developer",
-      company: "TechCorp Inc.",
-      period: "2022 - Present",
-      description:
-        "Led development of scalable web applications using React, Node.js, and AWS. Mentored junior developers and improved team productivity by 40%.",
-      skills: ["React", "Node.js", "AWS", "TypeScript"],
-    },
-    {
-      title: "Frontend Developer",
-      company: "StartupXYZ",
-      period: "2020 - 2022",
-      description:
-        "Built responsive web applications and improved user experience. Collaborated with design team to implement pixel-perfect interfaces.",
-      skills: ["React", "Vue.js", "Tailwind CSS", "JavaScript"],
-    },
-    {
-      title: "Junior Developer",
-      company: "WebSolutions",
-      period: "2019 - 2020",
-      description:
-        "Developed and maintained client websites. Gained experience in full-stack development and agile methodologies.",
-      skills: ["HTML", "CSS", "JavaScript", "PHP"],
-    },
-  ]
+      title: "Software Developer Intern",
+      company: "AppBuddy Consultancy LLP",
+      period: "Jun 2024 – Aug 2024",
+      location: "Sakalim, Goa",
+      description: [
+        "Developed a real-time weather application and a recipe feature using Vue.js and Bootstrap.",
+        "Integrated third-party weather APIs with backend services for live updates.",
+        "Implemented CRUD operations and schema validations using MongoDB and Mongoose.",
+        "Built responsive, mobile-friendly UIs optimized for cross-browser compatibility.",
+        "Worked in Agile sprints and participated in regular code reviews and stand-ups.",
+        "Documented components and API integrations for onboarding and team reference.",
+        "Improved SEO with semantic HTML and lazy loading, boosting crawlability and page speed."
+      ],
+      skills: [
+        "Vue.js",
+        "Bootstrap",
+        "MongoDB",
+        "Mongoose",
+        "JavaScript",
+        "REST APIs",
+        "Git",
+        "Agile"
+      ]
+    }
+  ];
 
   const education = [
     {
-      title: "Bachelor of Computer Science",
-      company: "University of Technology",
-      period: "2015 - 2019",
-      description:
-        "Graduated with honors. Focused on software engineering, algorithms, and data structures. Active member of the coding club.",
-      skills: ["Computer Science", "Algorithms", "Data Structures", "Software Engineering"],
+      title: "Bachelor of Engineering - Information Technology",
+      company: "Goa College of Engineering, Farmagudi",
+      period: "2021 – 2025",
+      description: [
+        "CGPA: 7.49",
+        "Ponda, Goa",
+        "Studied core IT subjects including software engineering, algorithms, and web development. Participated in hackathons and coding competitions."
+      ],
+      skills: [
+        "Information Technology",
+        "Data Structures",
+        "Algorithms",
+        "Web Development",
+        "DBMS",
+        "OOP",
+      ],
     },
     {
-      title: "Full Stack Web Development",
-      company: "Coding Bootcamp",
-      period: "2019",
-      description: "Intensive 6-month program covering modern web development technologies and best practices.",
-      skills: ["React", "Node.js", "MongoDB", "Express.js"],
+      title: "Higher Secondary School (XII)",
+      company: "Our Lady Of The Rosary Higher Secondary School",
+      period: "2019 – 2021",
+      description: [
+        "Percentage: 74%",
+        "Dona Paula, Goa",
+        "Studied Physics, Chemistry, Mathematics."
+      ],
+      skills: ["Mathematics", "Physics", "Chemistry", "Computer"],
+    },
+    {
+      title: "High School (X)",
+      company: "Axilium High School",
+      period: "2010 – 2019",
+      description: [
+        "Percentage: 81%",
+        "Caranzalem, Goa",
+        "Focused on foundational subjects and developed early interest in technology and computing."
+      ],
+      skills: ["Mathematics", "Science", "Problem Solving"],
     },
   ]
 
-  const currentData = activeTab === "work" ? workExperience : education
+
+  const currentData = activeTab === "education" ? education : workExperience
 
   return (
-    <section className="py-20 px-6">
+    <section className="py- px-6">
       <div className="mx-auto max-w-2xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Experience & Education</h2>
-          <p className="text-muted-foreground">My professional journey and academic background</p>
-        </div>
 
         {/* Tab Toggle */}
         <div className="flex justify-center mb-12">
-          <div className="flex bg-muted rounded-lg p-1">
-            <Button
-              variant={activeTab === "work" ? "default" : "ghost"}
-              onClick={() => setActiveTab("work")}
-              className="rounded-md"
-            >
-              Work
-            </Button>
-            <Button
-              variant={activeTab === "education" ? "default" : "ghost"}
+          <div className="flex rounded-lg p-1 w-full max-w-2xl justify-between bg-muted">
+            <button
               onClick={() => setActiveTab("education")}
-              className="rounded-md"
+              className={`w-1/2 rounded-md py-2 text-sm font-medium transition-colors duration-200 ${activeTab === "education"
+                ? "bg-background text-foreground"
+                : "bg-transparent text-muted-foreground"
+                }`}
             >
               Education
-            </Button>
+            </button>
+            <button
+              onClick={() => setActiveTab("work")}
+              className={`w-1/2 rounded-md py-2 text-sm font-medium transition-colors duration-200 ${activeTab === "work"
+                ? "bg-background text-foreground"
+                : "bg-transparent text-muted-foreground"
+                }`}
+            >
+              Work
+            </button>
           </div>
         </div>
+
+
 
         {/* Timeline */}
         <div className="space-y-6">
@@ -96,7 +124,41 @@ export default function WorkEducation() {
                     </div>
                     <div className="text-sm text-muted-foreground font-medium">{item.period}</div>
                   </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{item.description}</p>
+                  <ul className="text-muted-foreground mb-4 list-disc list-inside space-y-1 text-sm">
+                    {Array.isArray(item.description) ? (
+                      item.description.map((point, i) => (
+                        <li key={i}>
+                          {point.split(/(real-time weather application|recipe feature|Vue\.js|Bootstrap|MongoDB|Mongoose|JavaScript|REST APIs|Git|Agile|CRUD operations|UI\/UX enhancements|code reviews|stand-ups|schema validations)/g)
+                            .map((part, j) =>
+                              [
+                                "real-time weather application",
+                                "recipe feature",
+                                "Vue.js",
+                                "Bootstrap",
+                                "MongoDB",
+                                "Mongoose",
+                                "JavaScript",
+                                "REST APIs",
+                                "Git",
+                                "Agile",
+                                "CRUD operations",
+                                "code reviews",
+                                "stand-ups",
+                                "schema validations",
+                              ].includes(part) ? (
+                                <span key={j} className="text-foreground font-medium">{part}</span>
+                              ) : (
+                                <span key={j}>{part}</span>
+                              )
+                            )}
+                        </li>
+                      ))
+                    ) : (
+                      <li>{item.description}</li>
+                    )}
+                  </ul>
+
+
                   <div className="flex flex-wrap gap-2">
                     {item.skills.map((skill) => (
                       <Badge key={skill} variant="secondary">

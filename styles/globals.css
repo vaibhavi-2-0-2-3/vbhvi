@@ -92,3 +92,16 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes dash-animate {
+  from {
+    stroke-dashoffset: 753.98; /* 2 * π * 120 */
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-dash {
+  animation: dash-animate 2ms ease-in-out forwards;
+}

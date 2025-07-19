@@ -13,7 +13,7 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Johnson - Full Stack Developer",
+  title: "Vaibhavi Gaonkar - Full Stack Developer",
   description:
     "Personal portfolio of Vaibhavi Gaonkar, a full-stack developer crafting digital experiences with modern technologies.",
   keywords: ["developer", "portfolio", "react", "nextjs", "typescript"],

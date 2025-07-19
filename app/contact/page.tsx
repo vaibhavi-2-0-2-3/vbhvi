@@ -9,16 +9,16 @@ import ChatBot from "@/components/chat-bot"
 
 export default function ContactPage() {
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub", username: "@alexjohnson" },
-    { icon: Linkedin, href: "#", label: "LinkedIn", username: "Alex Johnson" },
-    { icon: Twitter, href: "#", label: "Twitter", username: "@alexjohnson" },
-    { icon: Mail, href: "mailto:hello@alexjohnson.dev", label: "Email", username: "hello@alexjohnson.dev" },
+    { icon: Github, href: "#", label: "GitHub", username: "@Vaibhavijohnson" },
+    { icon: Linkedin, href: "#", label: "LinkedIn", username: "Vaibhavi Johnson" },
+    { icon: Twitter, href: "#", label: "Twitter", username: "@Vaibhavijohnson" },
+    { icon: Mail, href: "mailto:hello@Vaibhavijohnson.dev", label: "Email", username: "hello@Vaibhavijohnson.dev" },
   ]
 
   const contactInfo = [
     { icon: MapPin, label: "Location", value: "San Francisco, CA" },
     { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-    { icon: Mail, label: "Email", value: "hello@alexjohnson.dev" },
+    { icon: Mail, label: "Email", value: "hello@Vaibhavijohnson.dev" },
   ]
 
   return (
@@ -136,7 +136,7 @@ export default function ContactPage() {
                 from you!
               </p>
               <Button size="lg" className="gap-2" asChild>
-                <a href="mailto:hello@alexjohnson.dev">
+                <a href="mailto:hello@Vaibhavijohnson.dev">
                   <Mail className="h-4 w-4" />
                   Send me an email
                 </a>
