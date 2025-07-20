@@ -5,7 +5,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: Github, href: "https://github.com/vaibhavi-2-0-2-3", label: "GitHub" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/vaibhavi-gaonkar-4660522a6/", label: "LinkedIn" },
-    { icon: Twitter, href: "https://x.com/me_vaibhavii", label: "Twitter" },
+    { icon: Twitter, href: "https://x.com/vbhvi_", label: "Twitter" },
     { icon: Mail, href: "mailto:vaibhavigaonkar760@gmail.com", label: "Email" },
   ]
 

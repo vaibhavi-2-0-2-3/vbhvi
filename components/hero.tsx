@@ -96,7 +96,7 @@ export default function Hero() {
 
                 {/* X (Twitter) */}
                 <a
-                  href="https://x.com/me_vaibhavii"
+                  href="https://x.com/vbhvi_"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-12 w-12 flex items-center justify-center hover:scale-110 transition-transform"

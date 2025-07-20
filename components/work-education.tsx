@@ -65,17 +65,17 @@ export default function WorkEducation() {
       ],
       skills: ["Mathematics", "Physics", "Chemistry", "Computer"],
     },
-    {
-      title: "High School (X)",
-      company: "Axilium High School",
-      period: "2010 – 2019",
-      description: [
-        "Percentage: 81%",
-        "Caranzalem, Goa",
-        "Focused on foundational subjects and developed early interest in technology and computing."
-      ],
-      skills: ["Mathematics", "Science", "Problem Solving"],
-    },
+    // {
+    //   title: "High School (X)",
+    //   company: "Axilium High School",
+    //   period: "2010 – 2019",
+    //   description: [
+    //     "Percentage: 81%",
+    //     "Caranzalem, Goa",
+    //     "Focused on foundational subjects and developed early interest in technology and computing."
+    //   ],
+    //   skills: ["Mathematics", "Science", "Problem Solving"],
+    // },
   ]
 
 

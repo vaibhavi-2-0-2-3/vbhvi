@@ -79,26 +79,18 @@ export default function ProjectsPage() {
       <Header />
       <main className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-2xl">
-          {/* Back to Home */}
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
 
           {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">My Projects</h1>
-            <p className="text-muted-foreground text-lg">
-              A collection of my work, from web applications to open-source contributions
-            </p>
+          <div className="mb-12">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 animate-fade-in">
+              <span className="font-calistoga text-[70-px]">
+                my projects.
+              </span>
+            </h1>
           </div>
 
           {/* Featured Projects */}
           <div className="mb-16">
-            <h2 className="text-2xl font-semibold mb-8">Featured Projects</h2>
             <div className="space-y-8">
               {featuredProjects.map((project, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
@@ -148,41 +140,7 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          {/* Other Projects */}
-          <div>
-            <h2 className="text-2xl font-semibold mb-8">Other Projects</h2>
-            <div className="grid gap-6">
-              {otherProjects.map((project, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 group">
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                        {project.title}
-                      </CardTitle>
-                      <div className="flex gap-2">
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <Github className="h-4 w-4" />
-                        </Button>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <ExternalLink className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </div>
 
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
         </div>
       </main>
       <ChatBot />
