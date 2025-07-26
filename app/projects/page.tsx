@@ -4,8 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, ArrowLeft } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
-import ChatBot from "@/components/chat-bot"
+import Footer from "@/components/footer"
 
 export default function ProjectsPage() {
   const projects = [
@@ -91,7 +90,7 @@ export default function ProjectsPage() {
 
           {/* Featured Projects */}
           <div className="mb-16">
-            <div className="space-y-8">
+            <div className="grid gap-6 md:grid-cols-2">
               {featuredProjects.map((project, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
                   <div className="flex flex-col">
@@ -138,12 +137,13 @@ export default function ProjectsPage() {
                 </Card>
               ))}
             </div>
+
           </div>
 
 
         </div>
       </main>
-      <ChatBot />
+      <Footer />
     </div>
   )
 }

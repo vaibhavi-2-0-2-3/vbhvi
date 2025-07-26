@@ -1,7 +1,7 @@
 import Header from "@/components/header"
 import Hero from "@/components/hero"
 import WorkEducation from "@/components/work-education"
-import ChatBot from "@/components/chat-bot"
+import ChatBot from "@/components/ChatBot"
 import Footer from "@/components/footer"
 import FeaturedProjects from "@/components/FeaturedProjects";
 

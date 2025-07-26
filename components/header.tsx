@@ -1,25 +1,27 @@
-"use client"
+'use client';
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { MessageCircle, Sun, Moon } from "lucide-react"
-import { useTheme } from "next-themes"
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Bot, Sun, Moon, BotOff } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useChatBot } from '@/context/ChatBotContext';
 
 export default function Header() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const { isVisible, toggleBot } = useChatBot();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/projects", label: "Projects" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
-  ]
+    { href: '/', label: 'Home' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/contact', label: 'Contact' },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-6">
@@ -40,8 +42,9 @@ export default function Header() {
 
           {/* Right Side Controls */}
           <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="icon" className="h-9 w-9">
-              <MessageCircle className="h-4 w-4" />
+            <Button variant="ghost" size="icon" className="h-9 w-9" onClick={toggleBot}>
+              {isVisible ? <Bot className="size-5" /> : <BotOff className="size-5" />}
+              <span className="sr-only">Chat Toggle</span>
             </Button>
 
             {mounted && (
@@ -49,14 +52,14 @@ export default function Header() {
                 variant="ghost"
                 size="icon"
                 className="h-9 w-9"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
             )}
           </div>
         </nav>
       </div>
     </header>
-  )
+  );
 }

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, ArrowRight, ArrowLeft, Clock } from "lucide-react"
 import Link from "next/link"
-import ChatBot from "@/components/chat-bot"
+import Footer from "@/components/footer"
 
 export default function BlogPage() {
   const posts = [
@@ -69,14 +69,7 @@ export default function BlogPage() {
       <Header />
       <main className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-2xl">
-          {/* Back to Home */}
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
+
 
           {/* Page Header */}
           <div className="text-center mb-12">
@@ -168,7 +161,7 @@ export default function BlogPage() {
           </div>
         </div>
       </main>
-      <ChatBot />
+      <Footer />
     </div>
   )
 }

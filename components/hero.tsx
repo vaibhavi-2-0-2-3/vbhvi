@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Download, Mail } from "lucide-react";
 import Image from "next/image";
-import profilePic from "@/public/profile3.jpg";
+import profilePic from "@/public/profile6.png";
 import glasses from "@/public/glasses.png";
 import Link from "next/link";
 
@@ -154,7 +154,7 @@ export default function Hero() {
             </svg> */}
 
             {/* Profile Image */}
-            <div className="w-[220px] h-[280px] mt-28 rounded-xl border-4 overflow-hidden">
+            {/* <div className="w-[220px] h-[280px] mt-28 rounded-xl border-4 overflow-hidden">
               <Image
                 src={profilePic}
                 alt="Profile"
@@ -163,7 +163,7 @@ export default function Hero() {
               />
 
 
-              {/* Sparkles Overlay */}
+              Sparkles Overlay
               <Image
                 src="/sparkle.png"
                 alt="sparkle"
@@ -182,7 +182,7 @@ export default function Hero() {
               />
 
 
-              {/* Glasses Overlay
+              Glasses Overlay
               <Image
                 src={glasses}
                 alt="glasses"
@@ -190,8 +190,10 @@ export default function Hero() {
                 height={40}
                 className={`absolute top-[58px] left-[60px] z-30 transition-all duration-700 ease-in-out
         ${hovered ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-2 scale-95'}`}
-              /> */}
-            </div>
+              />
+            </div> */}
+
+
           </div>
 
 

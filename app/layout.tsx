@@ -1,8 +1,11 @@
+// layout.tsx
+
 import type React from "react";
 import type { Metadata } from "next";
 import { Inter, Calistoga } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ChatBotProvider } from "@/context/ChatBotContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,7 +44,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ChatBotProvider>
+            {children}
+          </ChatBotProvider>
         </ThemeProvider>
       </body>
     </html>
