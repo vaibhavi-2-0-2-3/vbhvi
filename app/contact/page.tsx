@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Github, Linkedin, Twitter, Mail, MapPin, Phone, ArrowLeft, Send } from "lucide-react"
-import Link from "next/link"
 import Footer from "@/components/footer"
+import BottomNav from '@/components/BottomNav';
 
 export default function ContactPage() {
   const socialLinks = [
@@ -137,6 +137,7 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
+      <BottomNav />
       <Footer />
     </div>
   )
