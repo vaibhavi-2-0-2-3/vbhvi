@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, ArrowRight, ArrowLeft, Clock } from "lucide-react"
 import Link from "next/link"
+import Header from "@/components/header"
 import Footer from "@/components/footer"
 import BottomNav from '@/components/BottomNav';
 import ChatBot from "@/components/ChatBot"
@@ -72,6 +73,9 @@ export default function BlogPage() {
 
 
           {/* Page Header */}
+          <Header/>
+
+
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Blog</h1>
             <p className="text-muted-foreground text-lg">

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import Header from "@/components/header"
 import { Github, Linkedin, Twitter, Mail, MapPin, Phone, ArrowLeft, Send } from "lucide-react"
 import Footer from "@/components/footer"
 import BottomNav from '@/components/BottomNav';
@@ -27,6 +28,9 @@ export default function ContactPage() {
         <div className="mx-auto max-w-2xl">
 
           {/* Page Header */}
+          <Header />
+
+          {/* Contact Section */}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
             <p className="text-muted-foreground text-lg">Let's connect and build something amazing together</p>

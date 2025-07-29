@@ -9,11 +9,14 @@ import BottomNav from '@/components/BottomNav';
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <Header />
+
+      <main className="relative z-10">
         <Hero />
         <WorkEducation />
         <FeaturedProjects />
       </main>
+
       <BottomNav />
       <ChatBot />
       <Footer />

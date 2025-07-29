@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, ArrowLeft } from "lucide-react"
+import Header from "@/components/header"
 import Image from "next/image"
 import Footer from "@/components/footer"
 import BottomNav from '@/components/BottomNav';
@@ -80,6 +81,9 @@ export default function ProjectsPage() {
         <div className="mx-auto max-w-2xl">
 
           {/* Page Header */}
+          <Header />
+
+          {/* Page Title */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 animate-fade-in">
               <span className="font-calistoga text-[70-px]">
