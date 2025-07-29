@@ -1,4 +1,3 @@
-import Header from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -23,7 +22,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-2xl">
 

@@ -1,4 +1,3 @@
-import Header from "@/components/header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -76,7 +75,6 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-2xl">
 
