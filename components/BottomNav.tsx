@@ -39,7 +39,7 @@ export default function BottomNav() {
       className={`fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-3xl
       border border-border/20 bg-background/80 backdrop-blur-md shadow-xl
       flex items-center transition-all duration-300 ease-in-out
-      px-4 py-3 
+      px-1 py-3
       ${hoveredIndex !== null ? 'gap-8 scale-105 px-6' : 'gap-4 sm:gap-6'}`}
     >
       {navLinks.map((link, index) => (
