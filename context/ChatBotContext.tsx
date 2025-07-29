@@ -10,7 +10,7 @@ type ChatBotContextType = {
 const ChatBotContext = createContext<ChatBotContextType | undefined>(undefined);
 
 export const ChatBotProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const toggleBot = () => setIsVisible((prev) => !prev);
 
   return (

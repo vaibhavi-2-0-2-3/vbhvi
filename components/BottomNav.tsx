@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Bot, Sun, Moon, BotOff, Home, Notebook, Video, Folder, ShoppingCart, Terminal } from 'lucide-react';
+import { Bot, Sun, Moon, BotOff, Home, Notebook, Contact, Folder, Terminal } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useChatBot } from '@/context/ChatBotContext';
 
@@ -20,6 +20,7 @@ export default function BottomNav() {
     { href: '/blog', icon: <Notebook className="w-5 h-5" />, label: 'Blog' },
     { href: '/projects', icon: <Folder className="w-5 h-5" />, label: 'Projects' },
     { href: '/terminal', icon: <Terminal className="w-5 h-5" />, label: 'Terminal' },
+    { href: '/contact', icon: <Contact className="w-5 h-5" />, label: 'Contact' }
   ];
 
   return (

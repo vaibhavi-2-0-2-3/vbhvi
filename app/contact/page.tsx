@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Github, Linkedin, Twitter, Mail, MapPin, Phone, ArrowLeft, Send } from "lucide-react"
 import Footer from "@/components/footer"
 import BottomNav from '@/components/BottomNav';
+import ChatBot from "@/components/ChatBot";
 
 export default function ContactPage() {
   const socialLinks = [
@@ -136,6 +137,7 @@ export default function ContactPage() {
         </div>
       </main>
       <BottomNav />
+      <ChatBot />
       <Footer />
     </div>
   )

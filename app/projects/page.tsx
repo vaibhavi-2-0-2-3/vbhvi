@@ -5,6 +5,7 @@ import { ExternalLink, Github, ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import Footer from "@/components/footer"
 import BottomNav from '@/components/BottomNav';
+import ChatBot from "@/components/ChatBot"
 
 export default function ProjectsPage() {
   const projects = [
@@ -143,6 +144,7 @@ export default function ProjectsPage() {
         </div>
       </main>
       <BottomNav />
+      <ChatBot />
       <Footer />
     </div>
   )

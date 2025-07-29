@@ -4,6 +4,7 @@ import { Calendar, ArrowRight, ArrowLeft, Clock } from "lucide-react"
 import Link from "next/link"
 import Footer from "@/components/footer"
 import BottomNav from '@/components/BottomNav';
+import ChatBot from "@/components/ChatBot"
 
 export default function BlogPage() {
   const posts = [
@@ -161,6 +162,7 @@ export default function BlogPage() {
         </div>
       </main>
       <BottomNav />
+      <ChatBot />
       <Footer />
     </div>
   )
