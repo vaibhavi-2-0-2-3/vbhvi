@@ -1,6 +1,5 @@
 'use client';
 import { motion } from 'framer-motion';
-import noise from '@/public/noise.svg';
 
 export default function Header() {
   return (
@@ -46,12 +45,6 @@ export default function Header() {
           />
         ))}
       </div>
-
-      {/* Noise overlay */}
-      <div
-        className="absolute inset-0 opacity-10 mix-blend-overlay"
-        style={{ backgroundImage: `url(${noise.src})`, backgroundSize: 'cover' }}
-      />
     </motion.div>
   );
 }
