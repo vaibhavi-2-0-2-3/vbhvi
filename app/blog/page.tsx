@@ -10,7 +10,7 @@ export default function BlogPage() {
   return (
     <div className="mx-auto max-w-2xl">
       {/* Page Header */}
-      <div className="text-center mb-12">
+      <div className="text-center pb-20 px-6">
         <h1 className="text-4xl font-bold mb-4">Blog</h1>
         <p className="text-muted-foreground text-lg">
           Thoughts on development, technology, and everything in between

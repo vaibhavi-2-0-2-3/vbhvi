@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function ContactPage() {
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="mx-auto max-w-2xl">
       <main className="pb-20 px-6">
         <div className="mx-auto max-w-2xl">
 
