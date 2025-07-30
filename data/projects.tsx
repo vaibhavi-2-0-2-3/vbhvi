@@ -1,4 +1,3 @@
-// data/projects.ts
 export const projects = [
   {
     id: 1,
@@ -24,5 +23,70 @@ export const projects = [
     link: "/projects/sudoku",
     featured: false,
   },
-  // more...
+  {
+    id: 4,
+    title: "E-Commerce Platform",
+    description:
+      "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard. Built with modern technologies for scalability and performance.",
+    image: "/placeholder.svg?height=300&width=500",
+    tech: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL", "Tailwind CSS"],
+    github: "#",
+    live: "#",
+    featured: true,
+  },
+  {
+    id: 5,
+    title: "Task Management App",
+    description:
+      "Collaborative task management application with real-time updates, team collaboration, and project tracking. Features include drag-and-drop, notifications, and analytics.",
+    image: "/placeholder.svg?height=300&width=500",
+    tech: ["React", "Node.js", "Socket.io", "MongoDB", "Express", "Redux"],
+    github: "#",
+    live: "#",
+    featured: true,
+  },
+  {
+    id: 6,
+    title: "Weather Dashboard",
+    description:
+      "Beautiful weather dashboard with location-based forecasts, interactive maps, and weather alerts. Includes historical data and weather patterns analysis.",
+    image: "/placeholder.svg?height=300&width=500",
+    tech: ["Vue.js", "Tailwind CSS", "Weather API", "Chart.js", "Mapbox"],
+    github: "#",
+    live: "#",
+    featured: true,
+  },
+  {
+    id: 7,
+    title: "Portfolio Website",
+    description:
+      "Personal portfolio website built with Next.js and Tailwind CSS. Features dark mode, responsive design, and smooth animations.",
+    image: "/placeholder.svg?height=300&width=500",
+    tech: ["Next.js", "Tailwind CSS", "TypeScript", "Framer Motion"],
+    github: "#",
+    live: "#",
+    featured: false,
+  },
+  {
+    id: 8,
+    title: "Blog Platform",
+    description:
+      "Full-featured blog platform with markdown support, comments, and admin panel. Includes SEO optimization and social sharing.",
+    image: "/placeholder.svg?height=300&width=500",
+    tech: ["React", "Node.js", "MongoDB", "Express", "Markdown"],
+    github: "#",
+    live: "#",
+    featured: false,
+  },
+  {
+    id: 9,
+    title: "Chat Application",
+    description:
+      "Real-time chat application with private messaging, group chats, and file sharing. Built with WebSocket for instant communication.",
+    image: "/placeholder.svg?height=300&width=500",
+    tech: ["React", "Socket.io", "Node.js", "MongoDB", "Express"],
+    github: "#",
+    live: "#",
+    featured: false,
+  },
 ];
