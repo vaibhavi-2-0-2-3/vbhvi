@@ -3,24 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Header from "@/components/header"
-import { Github, Linkedin, Twitter, Mail, MapPin, Phone, ArrowLeft, Send } from "lucide-react"
-import Footer from "@/components/footer"
+import { Mail, Send } from "lucide-react"
 import BottomNav from '@/components/BottomNav';
 import ChatBot from "@/components/ChatBot";
+import { contactInfo, socialLinks } from "@/data/contact";
 
 export default function ContactPage() {
-  const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub", username: "@Vaibhavijohnson" },
-    { icon: Linkedin, href: "#", label: "LinkedIn", username: "Vaibhavi Johnson" },
-    { icon: Twitter, href: "#", label: "Twitter", username: "@Vaibhavijohnson" },
-    { icon: Mail, href: "mailto:hello@Vaibhavijohnson.dev", label: "Email", username: "hello@Vaibhavijohnson.dev" },
-  ]
-
-  const contactInfo = [
-    { icon: MapPin, label: "Location", value: "San Francisco, CA" },
-    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-    { icon: Mail, label: "Email", value: "hello@Vaibhavijohnson.dev" },
-  ]
 
   return (
     <div className="min-h-screen bg-background">
@@ -142,7 +130,6 @@ export default function ContactPage() {
       </main>
       <BottomNav />
       <ChatBot />
-      <Footer />
     </div>
   )
 }

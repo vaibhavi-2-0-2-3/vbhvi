@@ -1,11 +1,9 @@
-// layout.tsx
-
-import type React from "react";
 import type { Metadata } from "next";
 import { Inter, Calistoga } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ChatBotProvider } from "@/context/ChatBotContext";
+import PageLayout from "@/components/PageLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,8 +24,7 @@ export const metadata: Metadata = {
     description:
       "Personal portfolio of Vaibhavi Gaonkar, a full-stack developer crafting digital experiences with modern technologies.",
     type: "website",
-  },
-  generator: "v0.dev",
+  }
 };
 
 export default function RootLayout({
@@ -38,14 +35,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={calistoga.variable} suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ChatBotProvider>
-            {children}
+            <PageLayout>
+              {children}
+            </PageLayout>
           </ChatBotProvider>
         </ThemeProvider>
       </body>

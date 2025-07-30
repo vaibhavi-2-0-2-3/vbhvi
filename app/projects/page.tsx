@@ -149,7 +149,6 @@ export default function ProjectsPage() {
       </main>
       <BottomNav />
       <ChatBot />
-      <Footer />
     </div>
   )
 }

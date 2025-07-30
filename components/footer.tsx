@@ -1,14 +1,8 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
-import Link from "next/link"
+import { socialLinks } from "@/data/contact";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/vaibhavi-2-0-2-3", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/vaibhavi-gaonkar-4660522a6/", label: "LinkedIn" },
-    { icon: Twitter, href: "https://x.com/vbhvi_", label: "Twitter" },
-    { icon: Mail, href: "mailto:vaibhavigaonkar760@gmail.com", label: "Email" },
-  ]
-
   return (
     <footer className="py-20 mx-auto max-w-2xl">
       <div className="mx-auto max-w-4xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
@@ -27,21 +21,29 @@ export default function Footer() {
 
         {/* Social Icons */}
         <div className="flex items-center gap-4">
-          {socialLinks.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.label}
-              className="hover:text-foreground transition-colors"
-            >
-              <social.icon className="h-5 w-5" />
-            </a>
-          ))}
-        </div>
+          {socialLinks.map(({ icon, href, label }) => {
+            const isImage = typeof icon === "object" && "src" in icon;
+            const Icon = icon;
 
+            return (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="hover:text-foreground transition-colors"
+              >
+                {isImage ? (
+                  <Image src={icon} alt={label} width={20} height={20} />
+                ) : (
+                  <Icon className="h-5 w-5" />
+                )}
+              </a>
+            );
+          })}
+        </div>
       </div>
     </footer>
-  )
+  );
 }
