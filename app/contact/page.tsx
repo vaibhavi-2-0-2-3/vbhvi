@@ -1,15 +1,18 @@
+'use client';
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Send } from "lucide-react"
 import { contactInfo, socialLinks } from "@/data/contact";
+import Image from "next/image";
 
 export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main className="pt-32 pb-20 px-6">
+      <main className="pb-20 px-6">
         <div className="mx-auto max-w-2xl">
 
           {/* Contact Section */}
@@ -85,7 +88,12 @@ export default function ContactPage() {
                 {socialLinks.map((social) => (
                   <div key={social.label} className="flex items-center justify-between group">
                     <div className="flex items-center gap-3">
-                      <social.icon className="h-5 w-5 text-muted-foreground" />
+                      {typeof social.icon === "object" && "src" in social.icon ? (
+                        <Image src={social.icon} alt={social.label} width={20} height={20} />
+                      ) : (
+                        <social.icon className="h-5 w-5 text-muted-foreground" />
+                      )}
+
                       <div>
                         <span className="font-medium">{social.label}</span>
                         <span className="ml-2 text-sm text-muted-foreground">{social.username}</span>
