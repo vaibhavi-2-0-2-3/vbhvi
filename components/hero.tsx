@@ -9,7 +9,7 @@ import { socialLinks } from "@/data/contact";
 
 export default function Hero() {
   return (
-    <section id="home" className="pt-40 pb-20 px-6">
+    <section id="home" className="pb-20 px-6">
       <div className="mx-auto max-w-2xl text-center">
         <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 animate-fade-in">
           <span className="font-calistoga text-[70-px]">

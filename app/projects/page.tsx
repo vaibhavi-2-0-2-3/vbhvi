@@ -2,11 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, ArrowLeft } from "lucide-react"
-import Header from "@/components/header"
 import Image from "next/image"
-import Footer from "@/components/footer"
-import BottomNav from '@/components/BottomNav';
-import ChatBot from "@/components/ChatBot"
 
 export default function ProjectsPage() {
   const projects = [
@@ -80,9 +76,6 @@ export default function ProjectsPage() {
       <main className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-2xl">
 
-          {/* Page Header */}
-          <Header />
-
           {/* Page Title */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 animate-fade-in">
@@ -147,8 +140,6 @@ export default function ProjectsPage() {
 
         </div>
       </main>
-      <BottomNav />
-      <ChatBot />
     </div>
   )
 }

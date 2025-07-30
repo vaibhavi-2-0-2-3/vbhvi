@@ -2,10 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import Header from "@/components/header"
 import { Mail, Send } from "lucide-react"
-import BottomNav from '@/components/BottomNav';
-import ChatBot from "@/components/ChatBot";
 import { contactInfo, socialLinks } from "@/data/contact";
 
 export default function ContactPage() {
@@ -14,9 +11,6 @@ export default function ContactPage() {
     <div className="min-h-screen bg-background">
       <main className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-2xl">
-
-          {/* Page Header */}
-          <Header />
 
           {/* Contact Section */}
           <div className="text-center mb-12">
@@ -128,8 +122,6 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
-      <BottomNav />
-      <ChatBot />
     </div>
   )
 }
