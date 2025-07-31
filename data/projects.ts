@@ -4,6 +4,9 @@ export const projects = [
     title: "Carpooling App",
     description: "Blockchain-powered ride-sharing platform for commuters.",
     image: "/carpool.png",
+    tech: ["React", "Socket.io", "Node.js", "MongoDB", "Express"],
+    github: "#",
+    live: "#",
     link: "/projects/carpool",
     featured: true,
   },
@@ -12,6 +15,9 @@ export const projects = [
     title: "AuditAI",
     description: "AI audit layer ensuring ethics in enterprise AI systems.",
     image: "/auditai.png",
+    tech: ["React", "Socket.io", "Node.js", "MongoDB", "Express"],
+    github: "#",
+    live: "#",
     link: "/projects/auditai",
     featured: true,
   },
@@ -20,6 +26,9 @@ export const projects = [
     title: "Sudoku Solver",
     description: "Real-time puzzle solver with note-taking like duyle.dev.",
     image: "/sudoku.png",
+    tech: ["React", "Socket.io", "Node.js", "MongoDB", "Express"],
+    github: "#",
+    live: "#",
     link: "/projects/sudoku",
     featured: false,
   },
@@ -29,9 +38,17 @@ export const projects = [
     description:
       "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard. Built with modern technologies for scalability and performance.",
     image: "/placeholder.svg?height=300&width=500",
-    tech: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL", "Tailwind CSS"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Stripe",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS",
+    ],
     github: "#",
     live: "#",
+    link: "/projects/sudoku",
     featured: true,
   },
   {
@@ -43,6 +60,7 @@ export const projects = [
     tech: ["React", "Node.js", "Socket.io", "MongoDB", "Express", "Redux"],
     github: "#",
     live: "#",
+    link: "/projects/sudoku",
     featured: true,
   },
   {
@@ -54,6 +72,7 @@ export const projects = [
     tech: ["Vue.js", "Tailwind CSS", "Weather API", "Chart.js", "Mapbox"],
     github: "#",
     live: "#",
+    link: "/projects/sudoku",
     featured: true,
   },
   {
@@ -65,6 +84,7 @@ export const projects = [
     tech: ["Next.js", "Tailwind CSS", "TypeScript", "Framer Motion"],
     github: "#",
     live: "#",
+    link: "/projects/sudoku",
     featured: false,
   },
   {
@@ -76,6 +96,7 @@ export const projects = [
     tech: ["React", "Node.js", "MongoDB", "Express", "Markdown"],
     github: "#",
     live: "#",
+    link: "/projects/sudoku",
     featured: false,
   },
   {
@@ -87,6 +108,7 @@ export const projects = [
     tech: ["React", "Socket.io", "Node.js", "MongoDB", "Express"],
     github: "#",
     live: "#",
+    link: "/projects/sudoku",
     featured: false,
   },
 ];

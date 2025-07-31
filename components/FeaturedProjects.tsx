@@ -27,7 +27,7 @@ export default function FeaturedProjects() {
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
               <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
               <Link
-                href={project.link}
+                href={project.link || "#"}
                 className="text-primary underline text-sm hover:text-primary/80"
               >
                 View Project →
