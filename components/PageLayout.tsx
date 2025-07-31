@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 
 export default function PageLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background bg-dotted">
       <Header />
 
       <main className="relative z-10 pt-40 pb-32 px-6">

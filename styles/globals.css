@@ -6,9 +6,32 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@layer base {
+  body {
+    @apply text-foreground;
+  }
+}
+
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .bg-dotted {
+    @apply bg-dotted-light dark:bg-dotted-dark;
+  }
+
+  .bg-dotted-light {
+    background-color: #f9f9f9; /* light grey for light mode */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 0);
+    background-size: 16px 16px;
+    background-position: center;
+  }
+
+  .bg-dotted-dark {
+    background-color: #151718;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 0
+    );
+    background-size: 16px 16px;
+    background-position: center;
   }
 }
 
@@ -49,11 +72,11 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 0 0% 3.9%;
+    --background: 210 5% 8%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
+    --card: 210 5% 8%; 
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
+    --popover: 210 5% 8%; 
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
@@ -81,15 +104,6 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
 

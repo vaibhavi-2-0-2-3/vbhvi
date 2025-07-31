@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Image from "next/image";
-import profilePic from "@/public/profile6.png"; // optional if you want to use it
 import Link from "next/link";
 import { socialLinks } from "@/data/contact";
 
@@ -38,7 +37,7 @@ export default function Hero() {
           {/* Social Icons */}
           <div className="flex items-center gap-4">
             {socialLinks.map(({ icon, href, label }) => {
-              const isImage = typeof icon === "object" && "src" in icon; // detects imported images like SVG/PNG
+              const isImage = typeof icon === "object" && "src" in icon;
               const Icon = icon;
 
               return (

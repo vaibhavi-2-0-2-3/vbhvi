@@ -4,6 +4,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
+  safelist: ["bg-dotted"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,6 +13,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        dots: "radial-gradient(rgba(255,255,255,0.12) 1px, transparent 0)",
+      },
+      backgroundSize: {
+        dots: "16px 16px",
+      },
       fontFamily: {
         calistoga: ["var(--font-calistoga)"],
       },
