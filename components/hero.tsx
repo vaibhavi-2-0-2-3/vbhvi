@@ -25,8 +25,9 @@ export default function Hero() {
             onClick={() => setEnabled(!enabled)}
             className={`relative inline-flex h-[26px] w-[54px] rounded-full transition-colors duration-300 focus:outline-none`}
             style={{
-              backgroundColor: enabled ? "#ED1844" : "#6B7280" // Tailwind gray-500 fallback
+              backgroundColor: enabled ? "hsl(var(--brandred))" : "#6B7280" 
             }}
+
           >
             <span
               className={`inline-block h-[18px] w-[18px] transform rounded-full bg-white shadow-md transition-transform duration-300 ease-in-out m-1 

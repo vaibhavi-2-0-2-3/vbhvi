@@ -23,6 +23,7 @@ const config: Config = {
         calistoga: ["var(--font-calistoga)"],
       },
       colors: {
+        brandred: "#ED1844",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
