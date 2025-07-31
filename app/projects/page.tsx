@@ -17,7 +17,7 @@ export default function ProjectsPage() {
 
       <div className="grid gap-6 md:grid-cols-2 px-6 pb-20">
         {projects.map((project, index) => (
-          <Card key={index} className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
+          <Card key={index} className="overflow-hidden border-border hover:shadow-lg transition-all duration-300 group">
             <div className="flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <Image

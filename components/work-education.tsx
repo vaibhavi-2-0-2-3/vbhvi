@@ -39,7 +39,7 @@ export default function WorkEducation() {
         {/* Timeline */}
         <div className="space-y-6">
           {currentData.map((item, index) => (
-            <Card key={index} className="relative overflow-hidden hover:shadow-lg transition-all duration-300">
+            <Card key={index} className="relative overflow-hidden border-border hover:shadow-lg transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex flex-col gap-4">
                   <div className="flex justify-between items-start">

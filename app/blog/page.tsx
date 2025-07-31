@@ -22,7 +22,7 @@ export default function BlogPage() {
         <h2 className="text-2xl font-semibold mb-8">Featured Posts</h2>
         <div className="space-y-6">
           {featuredPosts.map((post, index) => (
-            <Card key={index} className="hover:shadow-lg transition-all duration-300 cursor-pointer group">
+            <Card key={index} className="hover:shadow-lg border-border transition-all duration-300 cursor-pointer group">
               <CardHeader>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                   <Calendar className="h-4 w-4" />
@@ -62,7 +62,7 @@ export default function BlogPage() {
         <h2 className="text-2xl font-semibold mb-8">Recent Posts</h2>
         <div className="space-y-4">
           {recentPosts.map((post, index) => (
-            <Card key={index} className="hover:shadow-md transition-all duration-300 cursor-pointer group">
+            <Card key={index} className="hover:shadow-md border-border transition-all duration-300 cursor-pointer group">
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-3">
                   <CardTitle className="text-lg group-hover:text-primary transition-colors">{post.title}</CardTitle>

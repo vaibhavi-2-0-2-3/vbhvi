@@ -23,7 +23,7 @@ export default function ContactPage() {
 
           <div className="space-y-8">
             {/* Contact Form */}
-            <Card>
+            <Card className="border-border hover:shadow-lg transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-xl">Send me a message</CardTitle>
               </CardHeader>
@@ -62,7 +62,7 @@ export default function ContactPage() {
             </Card>
 
             {/* Contact Information */}
-            <Card>
+            <Card className="border-border hover:shadow-lg transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-xl">Contact Information</CardTitle>
               </CardHeader>
@@ -80,7 +80,7 @@ export default function ContactPage() {
             </Card>
 
             {/* Social Links */}
-            <Card>
+            <Card className="border-border hover:shadow-lg transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-xl">Connect with Me</CardTitle>
               </CardHeader>
