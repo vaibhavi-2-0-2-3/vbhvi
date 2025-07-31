@@ -51,7 +51,7 @@ export default function BottomNav() {
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <div
-            className={`flex items-center justify-center size-10 rounded-xl transition-all duration-300 ease-in-out
+            className={`flex items-center justify-center size-10 rounded-xl cursor-pointer transition-all duration-300 ease-in-out
             text-muted-foreground hover:text-foreground
             ${hoveredIndex === index ? 'scale-125 -translate-y-1 bg-white/20 dark:bg-white/10 shadow-lg' : hoveredIndex !== null ? 'scale-90 opacity-80' : 'scale-100'}
             hover:bg-white/20 dark:hover:bg-white/10`}
@@ -69,7 +69,7 @@ export default function BottomNav() {
         onClick={toggleBot}
         onMouseEnter={() => setHoveredIndex(navLinks.length)}
         onMouseLeave={() => setHoveredIndex(null)}
-        className={`flex items-center justify-center size-10 rounded-xl transition-all duration-300 ease-in-out
+        className={`flex items-center justify-center size-10 rounded-xl cursor-pointer transition-all duration-300 ease-in-out
         text-muted-foreground hover:text-foreground
         ${hoveredIndex === navLinks.length ? 'scale-125 -translate-y-1 bg-white/20 dark:bg-white/10 shadow-lg' : hoveredIndex !== null ? 'scale-90 opacity-80' : 'scale-100'}
         hover:bg-white/20 dark:hover:bg-white/10`}
@@ -83,7 +83,7 @@ export default function BottomNav() {
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           onMouseEnter={() => setHoveredIndex(navLinks.length + 1)}
           onMouseLeave={() => setHoveredIndex(null)}
-          className={`flex items-center justify-center size-10 rounded-xl transition-all duration-300 ease-in-out
+          className={`flex items-center justify-center size-10 rounded-xl cursor-pointer transition-all duration-300 ease-in-out
           text-muted-foreground hover:text-foreground
           ${hoveredIndex === navLinks.length + 1 ? 'scale-125 -translate-y-1 bg-white/20 dark:bg-white/10 shadow-lg' : hoveredIndex !== null ? 'scale-90 opacity-80' : 'scale-100'}
           hover:bg-white/20 dark:hover:bg-white/10`}
