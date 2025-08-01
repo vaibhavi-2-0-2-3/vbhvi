@@ -10,11 +10,11 @@ export default function Footer() {
         {/* Text */}
         <p className="text-center sm:text-right">
           &copy; {new Date().getFullYear()}{" "}
-          <Link href="/" className="underline underline-offset-2 hover:text-foreground">
+          <Link href="/" className="underline underline-offset-2 hover:text-[hsl(var(--brandred))]">
             vaibhavig.dev
           </Link>{" "}
           |{" "}
-          <Link href="/privacy" className="underline underline-offset-2 hover:text-foreground">
+          <Link href="/privacy" className="underline underline-offset-2 hover:text-[hsl(var(--brandred))]">
             Privacy
           </Link>
         </p>
@@ -32,7 +32,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="hover:text-foreground transition-colors"
+                className="hover:text-[hsl(var(--brandred))]"
               >
                 {isImage ? (
                   <Image src={icon} alt={label} width={20} height={20} />

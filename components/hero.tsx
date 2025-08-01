@@ -42,15 +42,15 @@ export default function Hero() {
           {/* <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} </span> */}
           <p className="transition-all duration-700 opacity-100">
             Originally from Goa, <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {" "}I’m a </span> {" "} recent Information Technology graduate
-            <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} from </span> {" "} 
-             Goa College of Engineering, <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} driven by a passion for building
+            <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} from </span> {" "}
+            Goa College of Engineering, <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} driven by a passion for building
               things that matter. My journey in tech has been a hands-on
               one—starting with simple web pages, evolving into</span> {" "}  full-stack
-            applications, <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} and now leaning </span> {" "} deeper into 
-            <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} the </span> {" "} 
-             backend systems
-            <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} that power </span> {" "} 
-             real-world platforms.
+            applications, <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} and now leaning </span> {" "} deeper into
+            <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} the </span> {" "}
+            backend systems
+            <span className={enabled ? "line-through opacity-30" : "opacity-100"}> {""} that power </span> {" "}
+            real-world platforms.
           </p>
           <p className="transition-all duration-700 opacity-100">
             I enjoy exploring the entire development stack, but what excites
@@ -88,7 +88,7 @@ export default function Hero() {
           <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
-              className="gap-2 hover:scale-105 transition-transform bg-transparent text-foreground border border-white hover:bg-white/10"
+              className="gap-2 hover:scale-105 transition-transform bg-transparent text-foreground border border-white hover:text-[hsl(var(--brandred))] hover:bg-transparent hover:border-[hsl(var(--brandred))] "
             >
               <Download className="h-4 w-4" />
               Resume
@@ -107,7 +107,7 @@ export default function Hero() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 flex items-center justify-center hover:scale-110 transition-transform"
+                  className="h-12 w-12 flex items-center justify-center hover:text-[hsl(var(--brandred))]"
                   aria-label={label}
                 >
                   {isImage ? (
