@@ -31,7 +31,7 @@ export default function BottomNav() {
     { href: '/', icon: <Home className="w-5 h-5" />, label: 'Home' },
     { href: '/blog', icon: <Notebook className="w-5 h-5" />, label: 'Blog' },
     { href: '/projects', icon: <Folder className="w-5 h-5" />, label: 'Projects' },
-    { href: '/terminal', icon: <Terminal className="w-5 h-5" />, label: 'Terminal' },
+    { href: '/cli', icon: <Terminal className="w-5 h-5" />, label: 'CLI Mode' },
     { href: '/contact', icon: <Contact className="w-5 h-5" />, label: 'Contact' },
   ];
 
