@@ -1,6 +1,5 @@
 'use client';
 
-import BlackHoleCore from './elements/BlackHoleCore';
 import AccretionDisk from './elements/AccretionDisk';
 import Starfield from './elements/Starfield';
 import DustTrails from './elements/DustTrails';
