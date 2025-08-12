@@ -18,7 +18,7 @@ body {
   /* Light Mode Selection */
   ::selection {
     background-color: hsl(var(--brandred));
-    color: black; /* Visible on light backgrounds */
+    color: rgb(230, 230, 250);
   }
 
   /* Dark Mode Selection */
