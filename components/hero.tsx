@@ -23,6 +23,7 @@ export default function Hero() {
         {/* Toggle Button */}
         <div className="flex justify-left mb-4">
           <button
+            title="Toggle About Me"
             onClick={() => setEnabled(!enabled)}
             className={`relative inline-flex h-[26px] w-[54px] rounded-full transition-colors duration-300 focus:outline-none`}
             style={{

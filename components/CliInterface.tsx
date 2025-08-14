@@ -2,8 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 import { DATA } from "@/data/resume";
+import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { Copy, ArrowLeft } from "lucide-react";
 
-const ALIASES: Record<string, string> = {
+const ASCII_ART = `
+██╗   ██╗ █████╗ ██╗██████╗ ██╗  ██╗ █████╗ ██╗   ██╗██╗     ██████╗██╗     ██╗
+██║   ██║██╔══██╗██║██╔══██╗██║  ██║██╔══██╗██║   ██║██║    ██╔════╝██║     ██║
+██║   ██║███████║██║██████╔╝███████║███████║██║   ██║██║    ██║     ██║     ██║
+╚██╗ ██╔╝██╔══██║██║██╔══██╗██╔══██║██╔══██║╚██╗ ██╔╝██║    ██║     ██║     ██║
+ ╚████╔╝ ██║  ██║██║██████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║    ╚██████╗███████╗██║
+  ╚═══╝  ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═════╝╚══════╝╚═╝
+`;
+
+const ALIASES = {
   h: "help",
   "?": "help",
   a: "about",
@@ -15,7 +27,7 @@ const ALIASES: Record<string, string> = {
   g: "gui",
 };
 
-const COMMANDS: Record<string, string | (() => string)> = {
+const COMMANDS = {
   help: `Available commands:
   help (h, ?)       - Show this help message
   about (a)         - About me
@@ -42,49 +54,103 @@ const COMMANDS: Record<string, string | (() => string)> = {
       .join("\n"),
   education: () =>
     DATA.education
-      .map(
-        (edu) =>
-          `${edu.school} - ${edu.degree}\n${edu.start} - ${edu.end}`
-      )
+      .map((edu) => `${edu.school} - ${edu.degree}\n${edu.start} - ${edu.end}`)
       .join("\n"),
   clear: "CLEAR",
   gui: "GUI",
 };
 
+function makeLinksClickable(text: string) {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  return text.split(urlRegex).map((part, i) =>
+    urlRegex.test(part) ? (
+      <a
+        key={i}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-green-400 hover:text-green-300 underline underline-offset-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
+function formatCommandLine(line: string) {
+  if (line.startsWith("$")) {
+    return (
+      <>
+        <span className="text-green-400">dev@vaibhavi:~</span>{" "}
+        <span className="text-green-300">$</span> {line.slice(1)}
+      </>
+    );
+  }
+  return makeLinksClickable(line);
+}
+
 export function CliInterface({ onGuiCommand }: { onGuiCommand: () => void }) {
   const [input, setInput] = useState("");
-  const [history, setHistory] = useState<string[]>([]);
+  const [output, setOutput] = useState<
+    { type: "centered" | "normal"; content: string }[]
+  >([]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const bottomRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const outputRef = useRef<HTMLDivElement>(null);
+  const { setTheme } = useTheme();
+
+  useEffect(() => {
+    setTheme("dark");
+    setOutput([
+      { type: "centered", content: ASCII_ART },
+      { type: "centered", content: "Welcome to my portfolio CLI! 👋" },
+      { type: "centered", content: 'Type "help" or "?" to see available commands.' },
+      { type: "normal", content: "" },
+    ]);
+  }, [setTheme]);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [output]);
 
   const handleCommand = (cmd: string) => {
-    const trimmed = cmd.trim().toLowerCase();
-    const base = trimmed.split(" ")[0];
-    const command = ALIASES[base] || base;
+    const trimmedCmd = cmd.trim().toLowerCase();
+    const resolvedCmd =
+      ALIASES[trimmedCmd as keyof typeof ALIASES] || trimmedCmd;
 
-    if (command === "clear") {
-      setHistory([]);
+    if (resolvedCmd === "clear") {
+      setOutput([]);
       return;
     }
 
-    if (command === "gui") {
-      setHistory((prev) => [...prev, `$ ${cmd}`, "Switching to GUI mode...\n"]);
-      setTimeout(() => {
-        onGuiCommand();
-      }, 500);
+    if (resolvedCmd === "gui") {
+      setOutput((prev) => [...prev, { type: "normal", content: `$ ${cmd}` }, { type: "normal", content: "Switching to GUI mode..." }, { type: "normal", content: "" }]);
+      setTimeout(onGuiCommand, 500);
       return;
     }
 
-    const response = COMMANDS[command];
+    const result = COMMANDS[resolvedCmd as keyof typeof COMMANDS];
+    if (!result) {
+      setOutput((prev) => [
+        ...prev,
+        { type: "normal", content: `$ ${cmd}` },
+        { type: "normal", content: `Command not found: ${cmd}. Type "help" for available commands.` },
+        { type: "normal", content: "" },
+      ]);
+      return;
+    }
 
-    const output =
-      typeof response === "function"
-        ? response()
-        : response || `Command not found: ${trimmed}`;
-
-    setHistory((prev) => [...prev, `$ ${cmd}`, output, ""]);
+    const response = typeof result === "function" ? result() : result;
+    setOutput((prev) => [
+      ...prev,
+      { type: "normal", content: `$ ${cmd}` },
+      { type: "normal", content: response },
+      { type: "normal", content: "" },
+    ]);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -100,70 +166,96 @@ export function CliInterface({ onGuiCommand }: { onGuiCommand: () => void }) {
     if (e.key === "ArrowUp") {
       e.preventDefault();
       if (historyIndex < commandHistory.length - 1) {
-        const nextIndex = historyIndex + 1;
-        setInput(commandHistory[nextIndex]);
-        setHistoryIndex(nextIndex);
+        const newIndex = historyIndex + 1;
+        setHistoryIndex(newIndex);
+        setInput(commandHistory[newIndex]);
       }
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
       if (historyIndex > 0) {
-        const nextIndex = historyIndex - 1;
-        setInput(commandHistory[nextIndex]);
-        setHistoryIndex(nextIndex);
-      } else {
-        setInput("");
+        const newIndex = historyIndex - 1;
+        setHistoryIndex(newIndex);
+        setInput(commandHistory[newIndex]);
+      } else if (historyIndex === 0) {
         setHistoryIndex(-1);
+        setInput("");
       }
     }
   };
 
-  useEffect(() => {
-    inputRef.current?.focus();
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [history]);
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text).catch(console.error);
+  };
 
   return (
-    <div className="w-full h-screen bg-black text-white font-mono p-6 overflow-hidden">
-      <div className="max-w-4xl mx-auto overflow-y-auto h-full">
-        <pre className="text-green-500 text-sm mb-6">
-          {` 
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="fixed inset-0 bg-black font-mono flex flex-col"
+    >
+      {/* Back Button */}
+      <div className="absolute top-3 left-4 z-50">
+        <button
+          onClick={onGuiCommand}
+          className="flex items-center gap-2 px-3 py-2 rounded bg-black/50 border border-green-400/30 text-green-400 hover:bg-green-400/10 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          <span className="text-sm font-medium">Back</span>
+        </button>
+      </div>
 
-██╗   ██╗ █████╗ ██╗██████╗ ██╗  ██╗ █████╗ ██╗   ██╗██╗     ██████╗██╗     ██╗
-██║   ██║██╔══██╗██║██╔══██╗██║  ██║██╔══██╗██║   ██║██║    ██╔════╝██║     ██║
-██║   ██║███████║██║██████╔╝███████║███████║██║   ██║██║    ██║     ██║     ██║
-╚██╗ ██╔╝██╔══██║██║██╔══██╗██╔══██║██╔══██║╚██╗ ██╔╝██║    ██║     ██║     ██║
- ╚████╔╝ ██║  ██║██║██████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║    ╚██████╗███████╗██║
-  ╚═══╝  ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═════╝╚══════╝╚═╝
-                                                                                                                                                                                                                                                
-Welcome to Vaibhavi's portfolio CLI! 👋
-Type "help" or "?" to see available commands.
-`}
-        </pre>
+      {/* Terminal Content */}
+      <div className="flex-1 overflow-y-auto p-4" ref={outputRef}>
+        {output.map((line, i) => (
+          <div
+            key={i}
+            className={`group relative whitespace-pre-wrap ${line.type === "centered" ? "flex justify-center" : "text-left"
+              }`}
+          >
+            {line.type === "centered" && i <= 2 ? ( // Only ASCII + welcome lines
+              <div className="border border-green-500 p-2 rounded">
+                <span className="text-green-400 whitespace-pre-wrap">
+                  {formatCommandLine(line.content)}
+                </span>
+              </div>
+            ) : (
+              <span className="text-green-400">{formatCommandLine(line.content)}</span>
+            )}
 
-        <div className="space-y-2 text-sm">
-          {history.map((line, i) => (
-            <p key={i} className="whitespace-pre-wrap text-white">{line}</p>
-          ))}
-          <div ref={bottomRef} />
-        </div>
+            {line.content.trim() && (
+              <button
+                title="copy-btn"
+                onClick={() => copyToClipboard(line.content)}
+                className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <Copy className="h-4 w-4 text-green-500" />
+              </button>
+            )}
+          </div>
+        ))}
 
+
+        <div ref={bottomRef} />
+
+        {/* Input */}
         <form
           onSubmit={handleSubmit}
-          className="flex items-center mt-4 text-sm"
+          className="flex items-center sticky bottom-0 bg-black py-2"
         >
-          <span className="text-purple-400">dev@vaibhavi</span>
-          <span className="text-green-400 ml-1">:~$</span>
+          <span className="text-green-400">dev@vaibhavi:~</span>
+          <span className="text-green-300">$</span>
           <input
-            ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="bg-transparent text-white outline-none ml-2 flex-1"
+            className="flex-1 bg-transparent outline-none ml-2 text-green-400"
+            autoFocus
+            spellCheck={false}
             autoComplete="off"
           />
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }
