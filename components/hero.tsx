@@ -1,22 +1,91 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { socialLinks } from "@/data/contact";
 
+
 export default function Hero() {
   const [enabled, setEnabled] = useState(false);
 
+  // Draggable position
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const dragging = useRef(false);
+  const offset = useRef({ x: 0, y: 0 });
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    dragging.current = true;
+    offset.current = { x: e.clientX - pos.x, y: e.clientY - pos.y };
+  };
+  const handleMouseUp = () => {
+    dragging.current = false;
+  };
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!dragging.current) return;
+    setPos({
+      x: e.clientX - offset.current.x,
+      y: e.clientY - offset.current.y,
+    });
+  };
+
+  // Touch support
+  const handleTouchStart = (e: React.TouchEvent) => {
+    dragging.current = true;
+    offset.current = {
+      x: e.touches[0].clientX - pos.x,
+      y: e.touches[0].clientY - pos.y,
+    };
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!dragging.current) return;
+    setPos({
+      x: e.touches[0].clientX - offset.current.x,
+      y: e.touches[0].clientY - offset.current.y,
+    });
+  };
+  const handleTouchEnd = () => {
+    dragging.current = false;
+  };
+
+
   return (
-    <section id="home" className="pb-20 px-6">
+    <section
+      id="home"
+      className="pb-20 px-6 relative w-full h-screen"
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className="mx-auto max-w-2xl text-left">
-        {/* Heading */}
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 animate-fade-in">
-          <span className="font-calistoga text-[70px]">hi vaibhavi here.</span>
+        {/* Heading with draggable span */}
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 animate-fade-in font-calistoga">
+          hi{" "}
+          <span
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+            style={{
+              position: "relative",
+              display: "inline-block",
+              transform: `translate(${pos.x}px, ${pos.y}px)`,
+              userSelect: "none",
+              cursor: "grab",
+            }}
+            className="relative px-4 py-2 border-[0.5px] border-blue-400"
+          >
+            {/* Four white corner squares */}
+            <span className="absolute top-0 left-0 w-1 h-1 bg-white -translate-x-1/2 -translate-y-1/2"></span>
+            <span className="absolute top-0 right-0 w-1 h-1 bg-white translate-x-1/2 -translate-y-1/2"></span>
+            <span className="absolute bottom-0 left-0 w-1 h-1 bg-white -translate-x-1/2 translate-y-1/2"></span>
+            <span className="absolute bottom-0 right-0 w-1 h-1 bg-white translate-x-1/2 translate-y-1/2"></span>
+
+            vaibhavi here.
+          </span>
         </h1>
+
 
         <p className="text-lg md:text-xl mb-6">I am?</p>
 
