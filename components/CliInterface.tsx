@@ -246,7 +246,7 @@ export function CliInterface({ onGuiCommand }: { onGuiCommand: () => void }) {
         {/* Input */}
         <form
           onSubmit={handleSubmit}
-          className="flex items-center sticky bottom-0 bg-black py-2"
+          className="flex items-center sticky bottom-0 py-2"
         >
           <span className="text-green-400">dev@vaibhavi:~</span>
           <span className="text-green-300">$</span>
