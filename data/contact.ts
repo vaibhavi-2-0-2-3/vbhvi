@@ -1,5 +1,5 @@
 import { Github, Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
-import x from "@/public//x2.svg";
+import { FaXTwitter } from "react-icons/fa6";
 
 export const contactInfo = [
   { icon: MapPin, label: "Location", value: "Panjim, Goa" },
@@ -21,7 +21,7 @@ export const socialLinks = [
     username: "vaibhavi-gaonkar-4660522a6",
   },
   {
-    icon: x,
+    icon: FaXTwitter,
     href: "https://x.com/vbhvi_",
     label: "Twitter",
     username: "@vbhvi_",

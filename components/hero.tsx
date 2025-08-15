@@ -89,7 +89,7 @@ export default function Hero() {
           <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
-              className="gap-2 hover:scale-105 transition-transform bg-transparent text-foreground border border-white hover:text-[hsl(var(--brandred))] hover:bg-transparent hover:border-[hsl(var(--brandred))] "
+              className="gap-2 transition-transform bg-transparent text-foreground border border-white hover:text-[hsl(var(--brandred))] hover:bg-transparent hover:border-[hsl(var(--brandred))] "
             >
               <Download className="h-4 w-4" />
               Resume
