@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { useChatBot } from '@/context/ChatBotContext';
+import { Bot, Trash2 } from 'lucide-react';
+
 type Message = {
   role: 'user' | 'assistant';
   content: string;
@@ -9,10 +11,8 @@ type Message = {
 
 export default function ChatBot() {
   const { isVisible } = useChatBot();
-
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
-  const chatEndRef = useRef<HTMLDivElement | null>(null);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -32,52 +32,79 @@ export default function ChatBot() {
       const reply = data.reply;
 
       setMessages([...newMessages, { role: 'assistant', content: reply }]);
-    } catch (error) {
+    } catch {
       setMessages([...newMessages, { role: 'assistant', content: '⚠️ Something went wrong.' }]);
     }
   };
 
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  const clearMessages = () => {
+    setMessages([]);
+  };
 
-  // 👇 Don't render anything if chatbot is toggled off
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 w-80 max-h-[90vh] rounded-xl border shadow-lg bg-background text-foreground z-50 flex flex-col animate-fade-in">
-      <div className="px-4 pt-3 pb-2 border-b text-sm font-semibold bg-card text-card-foreground rounded-t-xl">
-        💬 Ask me about Vaibhavi
-      </div>
+    <div className="fixed bottom-4 right-4 w-80 h-[400px] rounded-xl border border-border shadow-lg bg-card text-card-foreground z-50 flex flex-col overflow-hidden">
+      {/* Header */}
+      <div className="px-4 py-2 border-b border-border bg-card text-card-foreground">
+        <div className="flex flex-col">
+          <span className="text-sm font-medium text-muted-foreground">
+            Chat with
+          </span>
 
-      <div className="flex-1 overflow-y-auto px-4 py-2 space-y-2 text-sm bg-muted scrollbar-thin">
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={`p-2 rounded-md w-fit max-w-full break-words ${msg.role === 'user'
-              ? 'ml-auto bg-primary text-primary-foreground'
-              : 'mr-auto bg-accent text-accent-foreground'
-              }`}
-          >
-            {msg.content}
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-green-500 inline-block" />
+            <span className="text-lg font-semibold">V Support</span>
           </div>
-        ))}
-        <div ref={chatEndRef} />
+        </div>
       </div>
 
-      <div className="flex gap-2 p-3 border-t bg-background">
+
+      {/* Chat Area (scrollable) */}
+      <div className="flex-1 px-4 py-3 text-sm bg-muted overflow-y-auto">
+        {messages.length === 0 ? (
+          <div className="text-center text-muted-foreground text-xs mt-10 flex flex-col items-center space-y-3">
+            <Bot className="w-6 h-6 text-foreground" />
+            <p className="font-semibold text-foreground">Send a message to start the chat!</p>
+            <p>You can ask the bot anything about me and it will help to find the relevant information!</p>
+          </div>
+
+        ) : (
+          messages.map((msg, i) => (
+            <div
+              key={i}
+              className={`mb-2 p-2 rounded-md w-fit max-w-[80%] break-words ${msg.role === 'user'
+                ? 'ml-auto bg-primary text-primary-foreground'
+                : 'mr-auto bg-accent text-accent-foreground'
+                }`}
+            >
+              {msg.content}
+            </div>
+          ))
+        )}
+      </div>
+
+      {/* Input */}
+      <div className="flex gap-2 p-3 border-t border-border bg-background">
+        <button
+          onClick={clearMessages}
+          className="text-muted-foreground hover:text-destructive transition"
+          title="Clear chat"
+        >
+          <Trash2 size={16} />
+        </button>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-          placeholder="Type a question..."
-          className="flex-1 rounded-md border px-2 py-1 text-sm bg-background text-foreground placeholder-muted-foreground"
+          placeholder="Ask something..."
+          className="flex-1 rounded-md border border-input px-2 py-1 text-sm bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
         />
         <button
           onClick={sendMessage}
           className="bg-primary text-primary-foreground px-3 py-1 text-sm rounded-md hover:opacity-90 transition"
         >
-          Send
+          ➤
         </button>
       </div>
     </div>
