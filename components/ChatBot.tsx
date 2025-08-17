@@ -44,7 +44,7 @@ export default function ChatBot() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 w-80 h-[400px] rounded-xl border border-border shadow-lg bg-card text-card-foreground z-50 flex flex-col overflow-hidden">
+    <div className="fixed bottom-4 right-1 w-80 h-[400px] rounded-xl border border-border shadow-lg bg-card text-card-foreground z-50 flex flex-col overflow-hidden">
       {/* Header */}
       <div className="px-4 py-2 border-b border-border bg-card text-card-foreground">
         <div className="flex flex-col">
