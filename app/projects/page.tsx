@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto max-w-3xl">
       <div className="pb-20 px-6">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-fade-in">
           <span className="font-calistoga text-[70-px]">my projects.</span>

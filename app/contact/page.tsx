@@ -11,9 +11,9 @@ import Image from "next/image";
 export default function ContactPage() {
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto max-w-3xl">
       <main className="pb-20 px-6">
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-3xl">
 
           {/* Contact Section */}
           <div className="text-center mb-12">

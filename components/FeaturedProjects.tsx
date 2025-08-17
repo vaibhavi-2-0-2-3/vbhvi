@@ -7,7 +7,7 @@ export default function FeaturedProjects() {
   const featured = projects.filter((p) => p.featured).slice(0, 2);
 
   return (
-    <section id="featured" className="mx-auto max-w-2xl py-20">
+    <section id="featured" className="mx-auto max-w-3xl py-20">
       <h2 className="font-bold mb-10 font-calistoga text-3xl">featured projects</h2>
 
       <div className="grid gap-10 md:grid-cols-2">

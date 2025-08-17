@@ -60,7 +60,7 @@ export default function Hero() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="mx-auto max-w-2xl text-left">
+      <div className="mx-auto max-w-3xl text-left">
         {/* Heading with draggable span */}
         <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 animate-fade-in font-calistoga">
           hi{" "}

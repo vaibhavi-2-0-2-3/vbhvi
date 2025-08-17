@@ -8,7 +8,7 @@ export default function BlogPage() {
   const recentPosts = blogPosts.filter((post) => !post.featured);
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto max-w-3xl">
       {/* Page Header */}
       <div className="text-center pb-20 px-6">
         <h1 className="text-4xl font-bold mb-4">Blog</h1>

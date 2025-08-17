@@ -11,10 +11,10 @@ export default function WorkEducation() {
 
   return (
     <section className="py- px-6">
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-3xl">
         {/* Tab Toggle */}
         <div className="flex justify-center mb-12">
-          <div className="flex rounded-lg p-1 w-full max-w-2xl justify-between bg-muted">
+          <div className="flex rounded-lg p-1 w-full max-w-3xl justify-between bg-muted">
             <button
               onClick={() => setActiveTab("education")}
               className={`w-1/2 rounded-md py-2 text-sm font-medium transition-colors duration-200 ${activeTab === "education"
