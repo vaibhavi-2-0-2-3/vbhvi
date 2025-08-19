@@ -57,23 +57,31 @@ export default function BottomNav() {
           <Link
             key={link.href}
             href={link.href}
-            className="relative group"
+            className="relative group flex items-center justify-center size-10 rounded-xl cursor-pointer"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
+            {/* Inner animated wrapper */}
             <div
-              className={`flex items-center justify-center size-10 rounded-xl cursor-pointer transition-all duration-300 ease-in-out
-            text-muted-foreground hover:text-[hsl(var(--brandred))]
-            ${hoveredIndex === index ? 'scale-125 -translate-y-1 bg-white/20 dark:bg-white/10 shadow-lg' : hoveredIndex !== null ? 'scale-90 opacity-80' : 'scale-100'}
-            hover:bg-white/20 dark:hover:bg-white/10`}
+              className={`flex items-center justify-center size-10 rounded-xl transition-all duration-300 ease-in-out
+        text-muted-foreground hover:text-[hsl(var(--brandred))]
+        ${hoveredIndex === index
+                  ? 'scale-125 -translate-y-1 bg-white/20 dark:bg-white/10 shadow-lg'
+                  : hoveredIndex !== null
+                    ? 'scale-90 opacity-80'
+                    : 'scale-100'}
+        hover:bg-white/20 dark:hover:bg-white/10`}
             >
               {link.icon}
             </div>
-            <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 bg-background text-xs text-foreground px-2 py-1 rounded-md transition-all duration-200 whitespace-nowrap">
+
+            {/* Tooltip (doesn’t affect hitbox) */}
+            <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 bg-background text-xs text-foreground px-2 py-1 rounded-md transition-all duration-200 whitespace-nowrap pointer-events-none">
               {link.label}
             </span>
           </Link>
         ))}
+
 
         {/* Chatbot Toggle */}
         <button
