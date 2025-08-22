@@ -61,7 +61,7 @@ export default function WorkEducation() {
                 <div className="flex flex-col gap-4">
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-1">{item.title}</h3>
+                      <h3 className="text-xl font-semibold mb-1 underline-brand">{item.title}</h3>
                       <p className="text-primary font-medium mb-2">{item.company}</p>
                     </div>
                     <div className="text-sm text-muted-foreground font-medium">{item.period}</div>

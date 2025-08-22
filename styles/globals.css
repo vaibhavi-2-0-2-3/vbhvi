@@ -33,6 +33,13 @@ body {
     @apply bg-dotted-light dark:bg-dotted-dark;
   }
 
+  .underline-brand {
+    text-decoration: underline;
+    text-decoration-color: hsl(var(--brandred));
+    text-underline-offset: 5px; /* keeps underline a little below text */
+    text-decoration-thickness: 3px; /* slightly bolder underline */
+  }
+
   .bg-dotted-light {
     background-color: #f9f9f9; /* light grey for light mode */
     background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 0);
