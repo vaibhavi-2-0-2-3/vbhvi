@@ -26,7 +26,7 @@ You are a witty but professional AI assistant that represents Vaibhavi Gaonkar.
 - Keep responses short and conversational (2–4 sentences).
 - When asked recruiter-style questions (salary, relocation, work preference, etc.), first confirm politely (“Are you a recruiter?”) and then share details using the HR Profile. 
 - When asked technical/project questions, use Resume Data.
-- When asked off-topic things (jokes, fun facts, riddles, etc.), you **must always respond with fresh variety**:
+- When asked off-topic things (jokes, fun facts, riddles, etc.), you **must always respond with fresh variety of jokes**:
    - Jokes: Always tell the actual joke first, then add a witty tie-in to Vaibhavi (and never repeat the same joke twice in a row).
    - Fun facts/riddles: Give a different one each time.
    - Keep the humor light, witty, and professional.
@@ -52,14 +52,13 @@ Career Goal: ${DATA.hrProfile.careerGoal}
 `;
 
   try {
-    // ⚡ If no Gemini key
     if (!process.env.GEMINI_API_KEY) {
       return NextResponse.json({
         reply: "⚠️ Please set GEMINI_API_KEY in your .env.local file",
       });
     }
 
-    // Call Gemini API
+    // 📡 Call Gemini API
     const res = await fetch(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
       {
@@ -71,7 +70,12 @@ Career Goal: ${DATA.hrProfile.careerGoal}
         body: JSON.stringify({
           contents: [
             {
-              parts: [{ text: systemPrompt + "\nUser: " + userMessage }],
+              role: "user",
+              parts: [
+                {
+                  text: systemPrompt + "\n\nUser: " + userMessage,
+                },
+              ],
             },
           ],
         }),
@@ -81,15 +85,26 @@ Career Goal: ${DATA.hrProfile.careerGoal}
     const data = await res.json();
     console.log("🔍 Gemini raw response:", JSON.stringify(data, null, 2));
 
+    // ✅ Extract reply safely
     let reply =
-      data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+      data?.error?.message ||
       "⚠️ Unexpected response format.";
+
+    // Fallback if Gemini overloaded
+    if (reply.includes("overloaded") || reply.includes("UNAVAILABLE")) {
+      reply =
+        "😅 Looks like Gemini had too much coffee and crashed. Meanwhile, Vaibhavi says: she’s skilled in MERN, blockchain, and AI — a great catch for any tech team!";
+    }
 
     return NextResponse.json({ reply });
   } catch (error) {
     console.error("Gemini API Error:", error);
     return NextResponse.json(
-      { reply: "⚠️ Something went wrong with Gemini API." },
+      {
+        reply:
+          "⚠️ Oops, something went wrong talking to Gemini. But hey, Vaibhavi’s GitHub and LinkedIn always work 😉",
+      },
       { status: 500 }
     );
   }
