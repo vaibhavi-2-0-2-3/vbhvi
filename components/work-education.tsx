@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { education, workExperience } from "@/data/workEducation"
 
 // 🔍 Keywords to highlight
-const HIGHLIGHT_KEYWORDS = ["real-time weather application", "Vue.js", "Bootstrap", "CRUD", "code reviews ", "stand-ups", "Agile", "MongoDB", "Mongoose", "responsive", "backend", "SEO", "API integrations", "semantic HTML", "lazy loading"];
+const HIGHLIGHT_KEYWORDS = ["real-time weather application", "Vue.js", "Node.js", "Express.js", "MongoDB", "weather APIs", "API call caching", "MVC architecture", "Vue.js", "Bootstrap", "Agile", "code reviews", "stand-ups", "SEO", "semantic HTML", "lazy loading", "frontend optimization"];
 
 function highlightText(text: string) {
   const regex = new RegExp(`(${HIGHLIGHT_KEYWORDS.join("|")})`, "gi");
