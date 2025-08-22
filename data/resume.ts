@@ -36,4 +36,14 @@ export const DATA = {
       linkedin: { url: "https://linkedin.com/in/vaibhavigk" },
     },
   },
+  hrProfile: {
+    expectedSalary: "₹6–8 LPA (negotiable for the right opportunity)",
+    workPreference: "Open to hybrid or onsite roles within India",
+    relocation: "Willing to relocate within Goa, Pune, or Bangalore",
+    noticePeriod: "Immediate joiner (college final year completed)",
+    strengths:
+      "Problem-solving, adaptability, strong foundation in DSA and full-stack projects",
+    careerGoal:
+      "To grow into a senior system engineer role and later transition into product-based IT companies",
+  },
 };
