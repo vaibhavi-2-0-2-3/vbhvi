@@ -5,6 +5,20 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { education, workExperience } from "@/data/workEducation"
 
+// 🔍 Keywords to highlight
+const HIGHLIGHT_KEYWORDS = ["real-time weather application", "Vue.js", "Bootstrap", "CRUD", "code reviews ", "stand-ups", "Agile", "MongoDB", "Mongoose", "responsive", "backend", "SEO", "API integrations", "semantic HTML", "lazy loading"];
+
+function highlightText(text: string) {
+  const regex = new RegExp(`(${HIGHLIGHT_KEYWORDS.join("|")})`, "gi");
+  return text.split(regex).map((part, i) =>
+    HIGHLIGHT_KEYWORDS.includes(part) ? (
+      <span key={i} className="font-semibold text-primary">{part}</span>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function WorkEducation() {
   const [activeTab, setActiveTab] = useState("education")
   const currentData = activeTab === "education" ? education : workExperience
@@ -39,7 +53,10 @@ export default function WorkEducation() {
         {/* Timeline */}
         <div className="space-y-6">
           {currentData.map((item, index) => (
-            <Card key={index} className="relative overflow-hidden border-border hover:shadow-lg transition-all duration-300">
+            <Card
+              key={index}
+              className="relative overflow-hidden border-border hover:shadow-lg transition-all duration-300"
+            >
               <CardContent className="p-6">
                 <div className="flex flex-col gap-4">
                   <div className="flex justify-between items-start">
@@ -52,7 +69,7 @@ export default function WorkEducation() {
 
                   <ul className="text-muted-foreground mb-4 list-disc list-inside space-y-1 text-sm">
                     {item.description.map((point, i) => (
-                      <li key={i}>{point}</li>
+                      <li key={i}>{highlightText(point)}</li>
                     ))}
                   </ul>
 
